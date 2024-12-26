@@ -1,0 +1,16 @@
+../Core/Src/bootloader.c:26:6:BL_PrintDebugMessage	1
+../Core/Src/bootloader.c:47:11:BL_FeatchHostCommand	9
+../Core/Src/bootloader.c:124:10:calculate_crc	4
+../Core/Src/bootloader.c:155:30:BL_CRC_Verify	2
+../Core/Src/bootloader.c:187:13:BL_Send_ACK	1
+../Core/Src/bootloader.c:198:13:BL_Send_NACK	1
+../Core/Src/bootloader.c:205:13:BL_Get_Version	2
+../Core/Src/bootloader.c:236:13:BL_Get_Help	2
+../Core/Src/bootloader.c:263:13:BL_Get_ChipID	2
+../Core/Src/bootloader.c:294:16:Perform_Flash_Erase	7
+../Core/Src/bootloader.c:364:13:BL_Flash_Erase	2
+../Core/Src/bootloader.c:397:16:Host_Address_Verify	3
+../Core/Src/bootloader.c:413:16:Perform_Flash_Write	7
+../Core/Src/bootloader.c:470:13:BL_Memory_Write	3
+../Core/Src/bootloader.c:528:13:Perform_Jump_To_APPlication	1
+../Core/Src/bootloader.c:554:13:BL_Jump_To_Application	3
