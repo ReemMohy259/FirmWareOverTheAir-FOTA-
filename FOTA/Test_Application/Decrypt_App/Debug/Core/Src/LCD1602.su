@@ -1,0 +1,8 @@
+../Core/Src/LCD1602.c:27:6:delay	16	static
+../Core/Src/LCD1602.c:35:6:send_to_lcd	16	static
+../Core/Src/LCD1602.c:55:6:lcd_send_cmd	24	static
+../Core/Src/LCD1602.c:68:6:lcd_send_data	24	static
+../Core/Src/LCD1602.c:81:6:lcd_clear	8	static
+../Core/Src/LCD1602.c:87:6:lcd_put_cur	16	static
+../Core/Src/LCD1602.c:103:6:lcd_init	8	static
+../Core/Src/LCD1602.c:122:6:lcd_send_string	16	static

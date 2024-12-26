@@ -1,0 +1,2 @@
+../Core/Src/RC4.c:4:6:rc4_key_schedule	3
+../Core/Src/RC4.c:24:6:rc4_crypt	2
