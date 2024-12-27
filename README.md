@@ -1,118 +1,151 @@
-# FirmWareOverTheAir-FOTA-
-# FOTA (Firmware Over-The-Air) Project
+# 🚀 Firmware Over-the-Air (FOTA) Project
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Hardware Requirements](#hardware-requirements)
-- [Software Requirements](#software-requirements)
-- [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
-- [How It Works](#how-it-works)
-- [Testing and Validation](#testing-and-validation)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
-## Overview
-The **FOTA (Firmware Over-The-Air)** project is designed to enable wireless updates of firmware for embedded devices. This ensures devices stay up-to-date with the latest features, security patches, and performance improvements without the need for manual intervention or physical access.
-
-## Features
-- Secure wireless transmission of firmware updates.
-- Robust error-checking and rollback mechanisms.
-- Lightweight and resource-efficient protocol for embedded systems.
-- Compatibility with various communication technologies (e.g., Wi-Fi, Bluetooth, LoRa, Zigbee).
-- Support for multiple target devices and version management.
-
-## System Architecture
-The system architecture consists of the following components:
-1. **Firmware Server**:
-   - Hosts the firmware files.
-   - Manages device requests and delivers appropriate updates.
-2. **Embedded Device**:
-   - Requests updates and applies them securely.
-   - Implements rollback mechanisms in case of failures.
-3. **Communication Protocol**:
-   - Handles secure data transfer between the server and the devices.
-
-### Architecture Diagram
-![Architecture Diagram](https://via.placeholder.com/800x400)  
-*Replace with your actual architecture diagram.*
-
-## Hardware Requirements
-- Microcontroller with at least 64KB Flash and 16KB RAM.
-- Wireless communication module (e.g., ESP8266, nRF52832).
-- Power supply and connectivity hardware (e.g., antennas, sensors, cables).
-
-## Software Requirements
-- Programming Environment: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html), [Keil uVision](https://www.keil.com/), or [PlatformIO](https://platformio.org/).
-- Libraries and Drivers:
-  - Secure Sockets API.
-  - OTA-specific libraries (e.g., MQTT, HTTP, or custom protocol).
-- Firmware versioning tool (e.g., [SemVer](https://semver.org/)).
-
-## Installation and Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/FOTA-Project.git
-   cd FOTA-Project
-   ```
-2. Configure the server settings in `config.h`:
-   ```c
-   #define SERVER_URL "http://firmware-server.com"
-   #define DEVICE_ID "12345"
-   ```
-3. Compile and flash the initial firmware to the device.
-4. Set up the firmware server:
-   - Install dependencies:
-     ```bash
-     pip install flask requests
-     ```
-   - Run the server:
-     ```bash
-     python server.py
-     ```
-5. Test the setup using provided test scripts.
-
-## Usage
-1. Power on the embedded device.
-2. Connect the device to the network.
-3. Trigger the update process (manual or periodic).
-4. Monitor logs to ensure the update is successful.
-
-## How It Works
-1. **Initialization**: The device checks its current firmware version.
-2. **Request Update**: Sends a request to the server for updates.
-3. **Download and Verify**: Downloads the update, verifies its integrity using checksum or signature.
-4. **Apply Update**: Reboots into a bootloader to apply the update.
-5. **Post-Update Validation**: Ensures the firmware is functional, else rolls back to the previous version.
-
-## Testing and Validation
-- **Unit Tests**:
-  - Verify individual components (e.g., checksum validation, communication protocol).
-- **Integration Tests**:
-  - Test communication between the server and device.
-- **Stress Tests**:
-  - Simulate large-scale updates with multiple devices.
-
-## Future Enhancements
-- Add support for delta updates to minimize data transfer.
-- Implement advanced security features (e.g., TLS, E2E encryption).
-- Extend compatibility to additional communication protocols.
-- Add a user-friendly dashboard for managing updates.
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with detailed descriptions of your changes.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
+## 📚 Table of Contents
+1. [📖 Project Overview](#project-overview)
+2. [🎯 Objectives](#objectives)
+3. [✨ Key Features](#key-features)
+4. [🔧 Technical Components](#technical-components)
+5. [🔄 Workflow](#workflow)
+6. [💡 Benefits](#benefits)
+7. [🚀 Future Enhancements](#future-enhancements)
+8. [⚙️ Setup and Usage](#setup-and-usage)
+   - [🔑 Prerequisites](#prerequisites)
+   - [📝 Steps to Run](#steps-to-run)
+9. [📂 Repository Structure](#repository-structure)
+10. [📥 Clone the Repository](#clone-the-repository)
+11. [🧪 Test Application](#test-application)
 
 ---
 
-For any questions or support, please contact us at [support@fota-project.com](mailto:support@fota-project.com).
+## 📖 Project Overview
+This project demonstrates a **Firmware Over-the-Air (FOTA)** system, leveraging modern embedded systems technologies to remotely update firmware on an STM32 ARM Cortex M3 microcontroller. The system is designed with scalability and reliability in mind, ensuring secure and efficient updates.
+
+---
+
+## 🎯 Objectives
+- 🔐 Develop a secure bootloader for STM32 to manage firmware updates.
+- 📡 Implement encrypted communication between the microcontroller and the ESP module.
+- 🔒 Use **RC4 encryption** for secure firmware transfers.
+- 🖥️ Provide an intuitive GUI for managing and controlling firmware updates.
+
+---
+
+## ✨ Key Features
+1. **Bootloader** 🛠️:
+   - Manages firmware updates and application execution.
+   - Jumps to the new application memory address post-update.
+
+2. **Secure Communication** 🔐:
+   - **ESP Module**: Handles secure communication.
+   - **RC4 Algorithm**: Ensures encrypted data integrity.
+
+3. **Graphical User Interface (GUI)** 🖥️:
+   - Developed in Python with MQTT integration.
+   - Features include:
+     - Firmware version display.
+     - Update initiation and monitoring.
+     - Debugging tools.
+
+4. **Cloud Integration** ☁️:
+   - ESP module downloads firmware binaries from Firebase.
+   - Keeps devices updated with the latest firmware.
+
+5. **Supported Commands**:
+   - `GetVersion` 📄: Retrieve the current firmware version.
+   - `GetHelp` 🆘: List all available commands.
+   - `Flash Mass Erase` 🧹: Erase all flash memory data.
+   - `Flash Erase (specific pages)` 🗂️: Erase specific flash memory pages.
+   - `Memory Write` ✍️: Write new firmware data to memory.
+
+---
+
+## 🔧 Technical Components
+1. **Hardware** 🖧:
+   - STM32 ARM Cortex M3 microcontroller.
+   - ESP module for communication.
+   - LCD module for status display.
+
+2. **Software** 🧑‍💻:
+   - STM32CubeMX for configuration.
+   - Arduino IDE for ESP programming.
+   - Python for GUI development.
+
+3. **Communication Protocols** 🔄:
+   - MQTT for GUI-ESP communication.
+   - UART for STM32-ESP data exchange.
+
+---
+
+## 🔄 Workflow
+1. GUI initiates firmware update.  
+2. ESP downloads firmware from Firebase.  
+3. Data encrypted using RC4 is sent to STM32.  
+4. Bootloader decrypts and writes firmware to memory.  
+5. New firmware is executed post-update.
+
+---
+
+## 💡 Benefits
+- 🌐 Remote firmware updates.  
+- 🔒 Secure through encryption.  
+- 🖥️ User-friendly GUI.  
+- 📈 Scalable for diverse applications.
+
+---
+
+## 🚀 Future Enhancements
+- 🌍 Support for more microcontroller platforms.  
+- 🔑 Advanced encryption methods.  
+- ⚡ Optimize firmware transfer speeds.  
+
+---
+
+## ⚙️ Setup and Usage
+
+### 🔑 Prerequisites
+- STM32 Development Board.  
+- ESP Module.  
+- Python (`paho-mqtt`, `tkinter`).  
+- Arduino IDE.  
+
+### 📝 Steps to Run
+1. Program the STM32 bootloader.  
+2. Flash the ESP module.  
+3. Configure Firebase for firmware binaries.  
+4. Run the Python GUI.
+
+---
+
+## 📂 Repository Structure
+- `/bootloader` 📁: STM32 bootloader code.  
+- `/esp_code` 📁: ESP module code.  
+- `/gui` 📁: Python GUI code.  
+- `/firmware` 📁: Sample firmware binaries.  
+- `/test_application` 📁: RC4 encryption testing code.
+
+---
+
+## 🧪 Test Application
+### RC4 Encryption Test 🔒
+This application tests the RC4 encryption and decryption process.
+
+1. **Steps**:
+   - Navigate to `/test_application`.  
+   - Compile RC4 test code.  
+   - Upload firmware to STM32.  
+   - Monitor UART for results.  
+
+2. **Use Case**:
+   - Input: Plain text firmware.  
+   - Process: Encrypt and verify decryption.  
+   - Output: Match original data.
+
+---
+Feel free to contribute or raise issues for improvements! ✨
+
+
+## 📥 Clone the Repository
+To get started, clone this repository:
+
+```bash
+git clone https://github.com/your-username/fota-project.git
