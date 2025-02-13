@@ -1,151 +1,192 @@
 # 🚀 Firmware Over-the-Air (FOTA) Project
 
 ## 📚 Table of Contents
-1. [📖 Project Overview](#project-overview)
-2. [🎯 Objectives](#objectives)
-3. [✨ Key Features](#key-features)
-4. [🔧 Technical Components](#technical-components)
-5. [🔄 Workflow](#workflow)
-6. [💡 Benefits](#benefits)
-7. [🚀 Future Enhancements](#future-enhancements)
-8. [⚙️ Setup and Usage](#setup-and-usage)
-   - [🔑 Prerequisites](#prerequisites)
-   - [📝 Steps to Run](#steps-to-run)
-9. [📂 Repository Structure](#repository-structure)
-10. [📥 Clone the Repository](#clone-the-repository)
-11. [🧪 Test Application](#test-application)
+
+- [📖 Project Overview](#project-overview)
+- [🎯 Objectives](#objectives)
+- [✨ Key Features](#key-features)
+- [🔧 Technical Components](#technical-components)
+- [🔄 Workflow](#workflow)
+- [💡 Benefits](#benefits)
+- [🚀 Future Enhancements](#future-enhancements)
+- [⚙️ Setup and Usage](#setup-and-usage)
+  - [🔑 Prerequisites](#prerequisites)
+  - [📝 Steps to Run](#steps-to-run)
+- [📂 Repository Structure](#repository-structure)
+- [📥 Clone the Repository](#clone-the-repository)
+- [🧪 Test Application](#test-application)
+- [🤝 Contributions](#contributions)
 
 ---
 
 ## 📖 Project Overview
-This project demonstrates a **Firmware Over-the-Air (FOTA)** system, leveraging modern embedded systems technologies to remotely update firmware on an STM32 ARM Cortex M3 microcontroller. The system is designed with scalability and reliability in mind, ensuring secure and efficient updates.
+
+The **Firmware Over-the-Air (FOTA)** project enables remote firmware updates for an **STM32 ARM Cortex M3** microcontroller. This system allows firmware updates to be deployed wirelessly, eliminating the need for physical intervention. It is designed to be scalable and robust for real-world embedded applications such as IoT, industrial automation, and automotive systems.
 
 ---
 
 ## 🎯 Objectives
-- 🔐 Develop a secure bootloader for STM32 to manage firmware updates.
-- 📡 Implement encrypted communication between the microcontroller and the ESP module.
-- 🔒 Use **RC4 encryption** for secure firmware transfers.
-- 🖥️ Provide an intuitive GUI for managing and controlling firmware updates.
+
+- **Develop a bootloader** for STM32 to manage firmware updates efficiently.
+- **Enable remote firmware updates** using an ESP module for wireless communication.
+- **Ensure reliability** in firmware transmission and installation.
+- **Provide a user-friendly Python-based GUI** for managing and monitoring updates.
+- **Implement cloud integration** for firmware storage and retrieval.
 
 ---
 
 ## ✨ Key Features
-1. **Bootloader** 🛠️:
-   - Manages firmware updates and application execution.
-   - Jumps to the new application memory address post-update.
 
-2. **Secure Communication** 🔐:
-   - **ESP Module**: Handles secure communication.
-   - **RC4 Algorithm**: Ensures encrypted data integrity.
+### 🛠️ Bootloader
+- Manages firmware updates and application execution.
+- Verifies firmware integrity before installation.
+- Executes the new firmware after a successful update.
 
-3. **Graphical User Interface (GUI)** 🖥️:
-   - Developed in Python with MQTT integration.
-   - Features include:
-     - Firmware version display.
-     - Update initiation and monitoring.
-     - Debugging tools.
+### 📡 Wireless Firmware Updates
+- **ESP Module** handles Wi-Fi-based communication.
+- **Cloud storage** enables remote firmware retrieval.
 
-4. **Cloud Integration** ☁️:
-   - ESP module downloads firmware binaries from Firebase.
-   - Keeps devices updated with the latest firmware.
+### 🖥️ Graphical User Interface (GUI)
+- Developed using **Python (Tkinter)** with **MQTT integration**.
+- Provides an interface for:
+  - **Viewing firmware versions**.
+  - **Initiating and monitoring updates**.
+  - **Debugging and logging**.
+![image](https://github.com/user-attachments/assets/1e5af6b6-dd23-42f2-9bc7-784b96e9c814)
+    
+### ☁️ Cloud Integration
+- **ESP module downloads firmware binaries** from Firebase.
+- **Ensures devices remain updated** with the latest firmware.
 
-5. **Supported Commands**:
-   - `GetVersion` 📄: Retrieve the current firmware version.
-   - `GetHelp` 🆘: List all available commands.
-   - `Flash Mass Erase` 🧹: Erase all flash memory data.
-   - `Flash Erase (specific pages)` 🗂️: Erase specific flash memory pages.
-   - `Memory Write` ✍️: Write new firmware data to memory.
+### 🔄 Supported Commands
+- **GetVersion 📄**: Retrieve the current firmware version.
+- **GetHelp 🆘**: List all available commands.
+- **GetCID** : Return the chip identification number.
+- **Flash Mass Erase 🧹**: Erase all flash memory.
+- **Flash Erase (specific pages) 🗂️**: Erase selected flash memory pages.
+- **Memory Write ✍️**: Write new firmware data to memory.
+- **JUMP_TO_ADDRESS** : Jump to a specific address to start executing the program.
 
 ---
 
 ## 🔧 Technical Components
-1. **Hardware** 🖧:
-   - STM32 ARM Cortex M3 microcontroller.
-   - ESP module for communication.
-   - LCD module for status display.
 
-2. **Software** 🧑‍💻:
-   - STM32CubeMX for configuration.
-   - Arduino IDE for ESP programming.
-   - Python for GUI development.
+### 🖧 Hardware
+- **STM32 ARM Cortex M3** microcontroller.
+- **ESP Module** for Wi-Fi-based communication.
+- **LCD Module** for message display after decryption.
+- **Design a PCB Layout** for integrate all HW components routing.
+  ![image](https://github.com/user-attachments/assets/c2bddd91-8463-4167-bf23-046dea1d2d45)
 
-3. **Communication Protocols** 🔄:
-   - MQTT for GUI-ESP communication.
-   - UART for STM32-ESP data exchange.
+
+### 🧑‍💻 Software
+- **STM32CubeMX** for peripheral configuration.
+- **STM32CubeIDE** for STM bootloader programing and test application.
+- **Arduino IDE** for ESP module programming.
+- **Python (Tkinter, paho-mqtt)** for GUI development.
+
+### 🔄 Communication Protocols
+- **MQTT**: Manages communication between GUI and ESP module.
+- **UART**: Handles serial communication between STM32 and ESP.
 
 ---
 
 ## 🔄 Workflow
-1. GUI initiates firmware update.  
-2. ESP downloads firmware from Firebase.  
-3. Data encrypted using RC4 is sent to STM32.  
-4. Bootloader decrypts and writes firmware to memory.  
-5. New firmware is executed post-update.
+
+1. The **GUI sends a firmware update request**.
+2. The **ESP module fetches the firmware from Firebase**.
+3. The **firmware is transferred to the STM32 microcontroller**.
+4. The **STM32 bootloader validates and writes the firmware**.
+5. The **device restarts and executes the new firmware**.
+![image](https://github.com/user-attachments/assets/eefdeec2-87e0-46d1-a325-5ef3c974181f)
 
 ---
 
 ## 💡 Benefits
-- 🌐 Remote firmware updates.  
-- 🔒 Secure through encryption.  
-- 🖥️ User-friendly GUI.  
-- 📈 Scalable for diverse applications.
+
+- **🌐 Remote updates** reduce maintenance costs.
+- **🔄 Seamless integration** with cloud services.
+- **🖥️ User-friendly interface** enhances accessibility.
+- **📈 Scalable design** supports multiple devices.
 
 ---
 
-## 🚀 Future Enhancements
-- 🌍 Support for more microcontroller platforms.  
-- 🔑 Advanced encryption methods.  
-- ⚡ Optimize firmware transfer speeds.  
+## 🚀 Future Enhancements  
 
+- 🌍 **Extend support to additional microcontroller platforms**.  
+- ⚡ **Optimize firmware transfer efficiency and reliability**.  
+- 🔒 **Implement a secure bootloader for enhanced system protection**.  
+- 📡 **Integrate with additional cloud platforms (AWS, Azure, etc.)**.
+- 
 ---
 
 ## ⚙️ Setup and Usage
 
 ### 🔑 Prerequisites
-- STM32 Development Board.  
-- ESP Module.  
-- Python (`paho-mqtt`, `tkinter`).  
-- Arduino IDE.  
+
+- **STM32 Development Board**.
+- **ESP32 Module**.
+- **Python (Tkinter, paho-mqtt, etc.)**.
+- **Arduino IDE for ESP programming**.
+- **MQTT Broker (e.g., Mosquitto)**.
 
 ### 📝 Steps to Run
-1. Program the STM32 bootloader.  
-2. Flash the ESP module.  
-3. Configure Firebase for firmware binaries.  
-4. Run the Python GUI.
+
+1. **Flash the STM32 bootloader** to handle firmware updates.
+2. **Flash the ESP module with the communication firmware**, ensuring that you update the **Wi-Fi credentials** in the `ESP.ino` file before uploading.
+   ![image](https://github.com/user-attachments/assets/f2fd54ff-9d23-4ad8-8ef6-5e12a3086c72)
+3. **Configure Firebase storage** for storing firmware binaries.
+4. **Run the Python GUI** to manage and monitor updates.
 
 ---
 
 ## 📂 Repository Structure
-- `/bootloader` 📁: STM32 bootloader code.  
-- `/esp_code` 📁: ESP module code.  
-- `/gui` 📁: Python GUI code.  
-- `/firmware` 📁: Sample firmware binaries.  
-- `/test_application` 📁: RC4 encryption testing code.
+
+```
+/Boot-Loader 📁 - STM32 bootloader code
+/ESP_Program 📁 - ESP module firmware
+/Python_Script 📁 - Python-based GUI
+/Test_Application 📁 - Decryption testing for STM32 
+```
+
+---
+
+## 📥 Clone the Repository
+
+To get started, clone this repository:
+
+```sh
+git clone https://github.com/ReemMohy259/FirmWareOverTheAir-FOTA-.git
+```
 
 ---
 
 ## 🧪 Test Application
-### RC4 Encryption Test 🔒
-This application tests the RC4 encryption and decryption process.
 
-1. **Steps**:
-   - Navigate to `/test_application`.  
-   - Compile RC4 test code.  
-   - Upload firmware to STM32.  
-   - Monitor UART for results.  
+### 🔒 Encryption Test
 
-2. **Use Case**:
-   - Input: Plain text firmware.  
-   - Process: Encrypt and verify decryption.  
-   - Output: Match original data.
+This test validates the encryption and decryption process using the **RC4 algorithm** to ensure correct firmware transmission.
+
+#### Process:
+
+1. **Encryption on ESP**:  
+   - The firmware data is **encrypted using the RC4 algorithm** on the ESP module before transmission.  
+   - The encrypted data is then sent to the STM32 microcontroller via UART.  
+
+2. **Decryption on STM32**:  
+   - The STM32 receives the encrypted firmware data.  
+   - The **RC4 decryption algorithm** is executed on STM32 to restore the original data.  
+
+3. **Output on LCD**:  
+   - The decrypted message is displayed on the **LCD module**, ensuring correct data reception and processing.  
+
+This test ensures that the firmware transfer process maintains data integrity by verifying that the decrypted output matches the original firmware content before encryption.
 
 ---
-Feel free to contribute or raise issues for improvements! ✨
 
+## 🤝 Contributions
 
-## 📥 Clone the Repository
-To get started, clone this repository:
+Contributions, bug reports, and feature requests are welcome! Feel free to open an issue or submit a pull request.
 
-```bash
-git clone https://github.com/your-username/fota-project.git
+✨ Happy coding! 🚀
+
