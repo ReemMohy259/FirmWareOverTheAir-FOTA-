@@ -2,22 +2,21 @@
 
 ## 📚 Table of Contents
 
-- [Project Overview](#project-overview)
-- [Objectives](#objectives)
-- [Key Features](#key-features)
-- [Technical Components](#technical-components)
-- [Workflow](#workflow)
-- [Benefits](#benefits)
-- [Future Enhancements](#future-enhancements)
-- [Setup and Usage](#setup-and-usage)
-  - [Prerequisites](#prerequisites)
-  - [Steps to Run](#steps-to-run)
-- [Repository Structure](#repository-structure)
-- [Clone the Repository](#clone-the-repository)
-- [Test Application](#test-application)
-- [Contributions](#contributions)
-- [Demo Video](#demo-video)
-
+- [📖 Project Overview](#project-overview)
+- [🎯 Objectives](#objectives)
+- [✨ Key Features](#key-features)
+- [🔧 Technical Components](#technical-components)
+- [🔄 Workflow](#workflow)
+- [💡 Benefits](#benefits)
+- [🚀 Future Enhancements](#future-enhancements)
+- [⚙️ Setup and Usage](#setup-and-usage)
+  - [🔑 Prerequisites](#prerequisites)
+  - [📝 Steps to Run](#steps-to-run)
+- [📂 Repository Structure](#repository-structure)
+- [📥 Clone the Repository](#clone-the-repository)
+- [🧪 Test Application](#test-application)
+- [📽️ Demo Video ](#demovideo )
+- [🤝 Contributions](#contributions)
 
 
 ---
