@@ -53,7 +53,7 @@ The **Firmware Over-the-Air (FOTA)** project enables remote firmware updates for
   - **Viewing firmware versions**.
   - **Initiating and monitoring updates**.
   - **Debugging and logging**.
-  - 
+    
 ![image](https://github.com/user-attachments/assets/c9944ca8-e271-4e26-ad77-f8ed4132bc79)
 
 ### ☁️ Cloud Integration
