@@ -186,10 +186,6 @@ This test ensures that the firmware transfer process maintains data integrity by
 
 ---
 
-You can add a simple **Demo Video** section like this:  
-
----
-
 ## 📽️ Demo Video  
 
 Watch the full demonstration of the **Firmware Over-the-Air (FOTA) Project**:  
