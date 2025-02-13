@@ -16,6 +16,7 @@
 - [📥 Clone the Repository](#clone-the-repository)
 - [🧪 Test Application](#test-application)
 - [🤝 Contributions](#contributions)
+- [📽️ Demo Video ](#demovideo )
 
 ---
 
@@ -52,8 +53,9 @@ The **Firmware Over-the-Air (FOTA)** project enables remote firmware updates for
   - **Viewing firmware versions**.
   - **Initiating and monitoring updates**.
   - **Debugging and logging**.
-![image](https://github.com/user-attachments/assets/1e5af6b6-dd23-42f2-9bc7-784b96e9c814)
-    
+  - 
+![image](https://github.com/user-attachments/assets/c9944ca8-e271-4e26-ad77-f8ed4132bc79)
+
 ### ☁️ Cloud Integration
 - **ESP module downloads firmware binaries** from Firebase.
 - **Ensures devices remain updated** with the latest firmware.
@@ -181,6 +183,18 @@ This test validates the encryption and decryption process using the **RC4 algori
    - The decrypted message is displayed on the **LCD module**, ensuring correct data reception and processing.  
 
 This test ensures that the firmware transfer process maintains data integrity by verifying that the decrypted output matches the original firmware content before encryption.
+
+---
+
+You can add a simple **Demo Video** section like this:  
+
+---
+
+## 📽️ Demo Video  
+
+Watch the full demonstration of the **Firmware Over-the-Air (FOTA) Project**:  
+
+🔗 **[Watch the Video Here] (https://drive.google.com/drive/folders/1S-VVVFW-HdrNtTotwaMDuzinoIGRefiO?usp=sharing)**  
 
 ---
 
