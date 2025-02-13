@@ -32,8 +32,8 @@
 
 /*--------------------------------------------------------- Special Setup Variable -------------------------------------------------------------------*/
 // Wi-Fi credentials
-const char* WIFI_SSID     = "oppoF9";
-const char* WIFI_PASSWORD = "reemreem259";
+const char* WIFI_SSID     = " <Write here your Wifi name> ";
+const char* WIFI_PASSWORD = " <Write here your Wifi password> ";
 
 // Firebase credentials
 const char* API_KEY           = "AIzaSyAhY7tnh7VDgHg9Kv7ydKveuhPw3eyz-VI";
