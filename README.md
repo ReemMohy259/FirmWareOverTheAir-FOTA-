@@ -136,7 +136,9 @@ The **Firmware Over-the-Air (FOTA)** project enables remote firmware updates for
 
 1. **Flash the STM32 bootloader** to handle firmware updates.
 2. **Flash the ESP module with the communication firmware**, ensuring that you update the **Wi-Fi credentials** in the `ESP.ino` file before uploading.
-   ![image](https://github.com/user-attachments/assets/f2fd54ff-9d23-4ad8-8ef6-5e12a3086c72)
+
+![image](https://github.com/user-attachments/assets/ea53ce9c-d515-4234-aaba-4d03c2a11203)
+
 3. **Configure Firebase storage** for storing firmware binaries.
 4. **Run the Python GUI** to manage and monitor updates.
 
