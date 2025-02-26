@@ -1,7 +1,7 @@
 # 🚀 Firmware Over-the-Air (FOTA) Project
 
 ## 📚 Table of Contents
-
+- [👥 Contributors ](#Contributors )
 - [📖 Project Overview](#project-overview)
 - [🎯 Objectives](#objectives)
 - [✨ Key Features](#key-features)
@@ -18,6 +18,18 @@
 - [📽️ Demo Video ](#demovideo )
 - [🤝 Contributions](#contributions)
 
+
+---
+### 👥 Contributors  
+
+**Reem Mohy Eldin Abdelrahman**  
+📧 [reem.ahmed02@eng-st.cu.edu.eg](mailto:reem.ahmed02@eng-st.cu.edu.eg)  
+
+**Mohamed Gamal Mohamed Ahmed**  
+📧 [muhammad.ahmed302@eng-st.cu.edu.eg](mailto:muhammad.ahmed302@eng-st.cu.edu.eg)  
+
+**Mohammed Ahmed Mohamed Shawky**  
+📧 [mohamed.shawky02@eng-st.cu.edu.eg](mailto:mohamed.shawky02@eng-st.cu.edu.eg)  
 
 ---
 
