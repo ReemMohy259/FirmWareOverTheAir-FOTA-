@@ -23,13 +23,13 @@
 ### 👥 Contributors  
 
 **Reem Mohy Eldin Abdelrahman**  
-📧 [reem.ahmed02@eng-st.cu.edu.eg](mailto:reem.ahmed02@eng-st.cu.edu.eg)  
+[GitHub Profile](https://github.com/ReemMohy259)  
 
 **Mohamed Gamal Mohamed Ahmed**  
-📧 [muhammad.ahmed302@eng-st.cu.edu.eg](mailto:muhammad.ahmed302@eng-st.cu.edu.eg)  
+[GitHub Profile](https://github.com/Mohamed100100) 
 
 **Mohammed Ahmed Mohamed Shawky**  
-📧 [mohamed.shawky02@eng-st.cu.edu.eg](mailto:mohamed.shawky02@eng-st.cu.edu.eg)  
+[GitHub Profile](https://github.com/AboAlsho2) 
 
 ---
 
